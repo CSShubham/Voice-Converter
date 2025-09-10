@@ -5,37 +5,37 @@ import { AudioWaveform, Megaphone, MicVocal, Sparkles } from 'lucide-react';
 
 function App() {
   const [activeTab, setActiveTab] = useState("tts");
-  const [particles, setParticles] = useState([]);
+  // const [particles, setParticles] = useState([]);
 
   // Generate floating particles
-  useEffect(() => {
-    const generateParticles = () => {
-      const newParticles = [];
-      for (let i = 0; i < 30; i++) {
-        newParticles.push({
-          id: i,
-          x: Math.random() * 100,
-          y: Math.random() * 100,
-          size: Math.random() * 3 + 1,
-          speedX: (Math.random() - 0.5) * 0.3,
-          speedY: (Math.random() - 0.5) * 0.3,
-          opacity: Math.random() * 0.4 + 0.1,
-        });
-      }
-      setParticles(newParticles);
-    };
+  // useEffect(() => {
+  //   const generateParticles = () => {
+  //     const newParticles = [];
+  //     for (let i = 0; i < 30; i++) {
+  //       newParticles.push({
+  //         id: i,
+  //         x: Math.random() * 100,
+  //         y: Math.random() * 100,
+  //         size: Math.random() * 3 + 1,
+  //         speedX: (Math.random() - 0.5) * 0.3,
+  //         speedY: (Math.random() - 0.5) * 0.3,
+  //         opacity: Math.random() * 0.4 + 0.1,
+  //       });
+  //     }
+  //     setParticles(newParticles);
+  //   };
 
-    generateParticles();
-    const interval = setInterval(() => {
-      setParticles(prev => prev.map(particle => ({
-        ...particle,
-        x: (particle.x + particle.speedX + 100) % 100,
-        y: (particle.y + particle.speedY + 100) % 100,
-      })));
-    }, 100);
+  //   generateParticles();
+  //   const interval = setInterval(() => {
+  //     setParticles(prev => prev.map(particle => ({
+  //       ...particle,
+  //       x: (particle.x + particle.speedX + 100) % 100,
+  //       y: (particle.y + particle.speedY + 100) % 100,
+  //     })));
+  //   }, 100);
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
@@ -43,7 +43,7 @@ function App() {
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/20 to-orange-900/20"></div>
       
       {/* Floating Particles */}
-      <div className="absolute inset-0">
+      {/* <div className="absolute inset-0">
         {particles.map(particle => (
           <div
             key={particle.id}
@@ -56,7 +56,7 @@ function App() {
             }}
           />
         ))}
-      </div>
+      </div> */}
 
       {/* Grid Pattern Overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
@@ -73,7 +73,7 @@ function App() {
                 </div>
                 <div>
                   <h1 className="text-5xl font-black bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent">
-                    VoiceFlow
+                    SpeakFlow
                   </h1>
                   <div className="flex items-center justify-center gap-2 mt-2">
                     <Sparkles size={16} className="text-purple-400" />
